@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">
+     <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/5881fd899f.js"></script>
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-fluid">
+<div class="form-horizontal" id="msform" >
+    <ul id="progressbar" style = "display: none;">
+        <li class="active">آشنایی</li>
+        <li>تعیین ضرایب</li>
+        <li>تعیین ضرایب</li>
+    </ul>
+    <fieldset>
+        <div class = "row">
+            <h2 class="fs-title" style="font-size: 15px; line-height: 20px; text-align: right;">به سیستم داده‌کاوی ما خوش آمدید.</h2>
+        </div>
+        <div class="row">
+            <div class="col-sm-6" style="margin-top: 20px; margin-bottom: 20px;">
+                <button type="button" id= "newAnalysis" class="btn" style=" background: #27AE60; width: 245px; font-size: 18px; font-weight: bold; color: white; border: 0 none; border-radius: 1px; cursor: pointer;border-radius: 5px;"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp بررسی داده‌های جدید</button>
+            </div>
+            <div class="col-sm-6" style="margin-top: 20px; margin-bottom: 20px;">
+                <button type="button" id= "prevAnalysis" class="next btn" style=" background: #27AE60; width: 245px; font-size: 18px; font-weight: bold; color: white; border: 0 none; border-radius: 1px; cursor: pointer;border-radius: 5px;"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp مشاهده تحلیل‌های پیشین</button>
+            </div>
+        </div>
+
+        
+        {{!-- <div class = "row">
+            <h2 class="fs-title" style="font-size: 18px; font-weight: bold; line-height: 20px; text-align: right;"> نتایج تحلیل‌های پیشین:</h2>
+        </div>
+        <div class="row"></div>
+        <div class="row" id = "dashboardResult" style="width: 90%; margin-right: 5% ;margin-top: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.05);">
+            <div class="col-sm-10" id = "transactionText" style="padding-top:14px; padding-bottom: 14px;">
+                <p style="text-align:right">برای مشاهده‌ی نتایج تحلیل‌های پیشین کلیک کنید.</p>
+            </div>
+            <div class="col-sm-2" id = "observe" style="padding-top:14px; padding-bottom: 14px;">
+                <a id= "download" href="#"></a><button id = "" type="button" class="btn btn-success"><i class="fa fa-arrows-alt" aria-hidden="true"></i>&nbsp مشاهده‌ نتایج</button></a>
+            </div>
+        </div> --}}
+        
+    </fieldset>
+    
+    <fieldset>
+        <div class = "row">
+            <h2 class="fs-title" style="font-size: 18px; font-weight: bold; line-height: 20px; text-align: right;"> نتایج تحلیل‌های پیشین:</h2>
+        </div>
+       <div class="col-sm-5" id = "dashboardResult" style="margin-right: 5% ;margin-top: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.05);">
+            <div class="col-sm-6" id = "transactionText" style="padding-top:14px; padding-bottom: 14px;">
+                <p style="text-align:right">تاریخ گزارش:</p>
+            </div>
+            <div class="col-sm-6" id = "observe" style="padding-top:14px; padding-bottom: 14px;">
+                <button id = "observe" type="button" class="btn btn-success next"><i class="fa fa-arrows-alt" aria-hidden="true"></i>&nbsp مشاهده‌ نتایج</button>
+            </div>
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="بازگشت" />
+        
+    </fieldset>
+
+    <fieldset>
+        <div class="row">
+            <div class="row" id = "salam" style="width: 90%; margin-right: 5% ;margin-top: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.05);">
+                <div class="col-sm-10" id = "hello" style="padding-top:14px; padding-bottom: 14px;">
+                    <p style="text-align:right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                </div>
+                <div class="col-sm-2" style="padding-top:14px; padding-bottom: 14px;">
+                    <a id= "download" href="/download/1" download><button type="button" class="btn btn-success"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i>&nbsp دانلود</button></a>
+                </div>
+            </div>
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="قبلی" />  
+    </fieldset>
+
+    </div>
+</div>
+<script src="/javascripts/dashboard.js"></script>
+<script src="/javascripts/upload.js"></script>
+</body>
+</html>
